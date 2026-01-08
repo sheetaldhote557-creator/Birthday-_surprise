@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday My Love ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(circle at top, #1a1a2e, #000);
+    color:#fff;
+    text-align:center;
+}
+
+h1{
+    margin-top:20px;
+    font-size:32px;
+    color:#ff4d6d;
+}
+
+.date{
+    font-size:18px;
+    color:#ffd6e0;
+    margin-bottom:10px;
+}
+
+.slider{
+    width:90%;
+    max-width:400px;
+    margin:20px auto;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 0 25px rgba(255,77,109,0.6);
+}
+
+.slider img{
+    width:100%;
+    display:none;
+}
+
+.slider img.active{
+    display:block;
+}
+
+.message{
+    width:90%;
+    max-width:500px;
+    margin:20px auto;
+    background:rgba(255,255,255,0.08);
+    padding:20px;
+    border-radius:20px;
+    line-height:1.6;
+    font-size:16px;
+}
+
+.play-btn{
+    margin:25px 0;
+    padding:15px 30px;
+    background:#ff4d6d;
+    border:none;
+    color:white;
+    font-size:18px;
+    border-radius:50px;
+    cursor:pointer;
+}
+
+footer{
+    margin:30px 0;
+    font-size:14px;
+    opacity:0.7;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Happy Birthday Arun 🎉❤️</h1>
+<div class="date"> 0
+9 January – The Day My World Became More Beautiful ✨</div>
+
+<div class="slider">
+    <img src="https://i.ibb.co/My8Px9fk/1767890957029.png" class="active">
+    <img src="https://i.ibb.co/gbyh4h50/1767891816387.png">
+    <img src="https://i.ibb.co/8LZdFCpY/1767892104656.png">
+    <img src="https://i.ibb.co/3yGt6Lvm/1767892287738.png">
+    <img src="https://i.ibb.co/YBzBLkyD/1767892004946.png">
+    <img src="https://i.ibb.co/k6HMkrs9/IMG-20260107-145848-087.jpg">
+    <img src="https://i.ibb.co/twvmRYc6/IMG-20260107-145350-117.jpg">
+    <img src="https://i.ibb.co/Kpzmdx6p/IMG-20260107-150041-823.jpg">
+    <img src="https://i.ibb.co/LXPT6V5X/IMG-20260107-145921-321.jpg">
+    <img src="https://i.ibb.co/gZJ05Gkt/IMG-20260107-150006-270.jpg">
+</div>
+
+<div class="message">
+    <p>❤️ You are not just my love story, you are my whole life.</p>
+    <p>At every birth, at every turn… I only want your company.</p>
+    <p>Thinking about a future with you gives me peace 🫶</p>
+    <p>I don’t just choose you today, I choose you every day 💕</p>
+    <p>You are not my habit, you are my necessity.</p>
+    <p>Meeting you made me realize… now life is complete ✨</p>
+    <p><b>You are what “forever” really means ❤️</b></p>
+</div>
+
+<button class="play-btn" onclick="playMusic()">▶ Play Our Song</button>
+
+<audio id="music">
+    <source src=" https://cdn.pixabay.com/download/audio/2022/03/15/audio_8b8b0d6b8e.mp3" type="audio/mpeg">
+</audio>
+
+<footer>
+Made with endless love 💖<br>
+— Sheetal ❤️
+</footer>
+
+<script>
+let slides = document.querySelectorAll(".slider img");
+let index = 0;
+
+setInterval(() => {
+    slides[index].classList.remove("active");
+    index = (index + 1) % slides.length;
+    slides[index].classList.add("active");
+}, 3000);
+
+function playMusic(){
+    document.getElementById("music").play();
+}
+</script>
+
+</body>
+</html>
