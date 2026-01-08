@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Arun ❤️</title>
+
+<style>
+body{
+ margin:0;
+ background:#0b0b0b;
+ font-family:'Segoe Script', cursive;
+ color:white;
+ text-align:center;
+ overflow-x:hidden;
+}
+
+.overlay{
+ position:fixed;
+ inset:0;
+ background:black;
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
+ align-items:center;
+ z-index:10;
+}
+
+.overlay h2{
+ color:#ff4d6d;
+ font-size:28px;
+}
+
+.overlay button{
+ padding:15px 30px;
+ font-size:18px;
+ border:none;
+ border-radius:30px;
+ background:#ff1744;
+ color:white;
+}
+
+h1{
+ margin-top:20px;
+ font-size:36px;
+ color:#ff4d6d;
+ animation:glow 2s infinite;
+}
+
+@keyframes glow{
+ 0%{text-shadow:0 0 5px red;}
+ 50%{text-shadow:0 0 25px pink;}
+ 100%{text-shadow:0 0 5px red;}
+}
+
+p{
+ font-size:20px;
+ margin:10px 20px;
+ color:#eee;
+}
+
+.gallery{
+ display:flex;
+ flex-wrap:wrap;
+ justify-content:center;
+ margin-bottom:40px;
+}
+
+.gallery img{
+ width:250px;
+ margin:12px;
+ border-radius:20px;
+ box-shadow:0 0 25px #ff4d6d;
+ animation:zoom 3s infinite alternate;
+}
+
+@keyframes zoom{
+ from{transform:scale(1);}
+ to{transform:scale(1.06);}
+}
+
+/* hearts */
+.heart{
+ position:fixed;
+ bottom:-20px;
+ font-size:22px;
+ animation:float 6s linear infinite;
+}
+
+@keyframes float{
+ from{transform:translateY(0);opacity:1;}
+ to{transform:translateY(-100vh);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- TAP SCREEN -->
+<div class="overlay" id="startScreen">
+ <h2>Tap to Start ❤️</h2>
+ <button onclick="startLove()">▶ Play Surprise</button>
+</div>
+
+<h1>🎂 Happy Birthday Arun ❤️</h1>
+
+<p>
+My love, my safe place, my forever 💕<br>
+Every smile of yours lights up my dark days ✨<br>
+On your birthday, I wish you endless happiness,<br>
+success in every dream, and love that never fades ❤️<br><br>
+Forever yours,<br><b>Sheetal 💖</b>
+</p>
+
+<div class="gallery">
+<img src="https://i.ibb.co/CKBv87Dj/IMG-20260107-145350-117.jpg">
+<img src="https://i.ibb.co/PB88Dmh/IMG-20260107-145459-656.jpg">
+<img src="https://i.ibb.co/6cGvLDHc/IMG-20260107-145848-087.jpg">
+<img src="https://i.ibb.co/6cDSL7vT/IMG-20260107-145921-321.jpg">
+<img src="https://i.ibb.co/Xry2w14m/IMG-20260107-150006-270.jpg">
+<img src="https://i.ibb.co/99dqtpDv/IMG-20260107-150041-823.jpg">
+<img src="https://i.ibb.co/Z6shgDHS/Snapchat-1003119136-2.jpg">
+</div>
+
+<audio id="song" loop>
+ <source src="https://pagalworld.com.se/files/download/id/6879" type="audio/mpeg">
+</audio>
+
+<script>
+function startLove(){
+ let song=document.getElementById("song");
+ song.play();
+ document.getElementById("startScreen").style.display="none";
+}
+
+// floating hearts
+setInterval(()=>{
+ let h=document.createElement("div");
+ h.className="heart";
+ h.innerHTML="❤️";
+ h.style.left=Math.random()*100+"vw";
+ document.body.appendChild(h);
+ setTimeout(()=>h.remove(),6000);
+},300);
+</script>
+
+</body>
+</html>
