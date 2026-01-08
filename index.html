@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday My Jana ❤️</title>
+<style>
+/* DARK AESTHETIC + NEON STYLE */
+body{
+ margin:0;
+ background:#0b0b0d;
+ font-family:'Segoe Script', cursive;
+ text-align:center;
+ overflow:hidden;
+ color:white;
+}
+
+/* Neon Heading */
+h1{
+ margin-top:30px;
+ font-size:38px;
+ color:#ff4d6d;
+ text-shadow:0 0 10px #ff1a75,0 0 20px #ff66b3,0 0 30px #ff99cc;
+}
+
+/* Typing Neon Name */
+#typing{
+ font-size:28px;
+ color:#ff66b3;
+ margin-bottom:10px;
+ text-shadow:0 0 5px #ff66b3,0 0 10px #ff1a75;
+}
+
+/* Floating Hearts */
+.heart{
+ position:fixed;
+ bottom:-20px;
+ font-size:22px;
+ color:#ff3366;
+ animation:float 6s linear infinite;
+ cursor:pointer;
+ text-shadow:0 0 5px #ff66b3;
+}
+@keyframes float{
+ from{transform:translateY(0);opacity:1;}
+ to{transform:translateY(-100vh);opacity:0;}
+}
+
+/* Roses */
+.rose{
+ position:fixed;
+ top:-20px;
+ font-size:22px;
+ animation:fall 6s linear infinite;
+}
+@keyframes fall{
+ from{transform:translateY(0);opacity:1;}
+ to{transform:translateY(100vh);opacity:0;}
+}
+
+/* Fireworks */
+.fire{
+ position:fixed;
+ font-size:26px;
+ animation:blast 1.5s ease-out forwards;
+}
+@keyframes blast{
+ from{transform:scale(0);opacity:1;}
+ to{transform:scale(3);opacity:0;}
+}
+
+/* Image Modal */
+#modal{
+ display:none;
+ position:fixed;
+ top:0;
+ left:0;
+ width:100%;
+ height:100%;
+ background:rgba(0,0,0,0.95);
+ justify-content:center;
+ align-items:center;
+ flex-direction:column;
+ z-index:1000;
+}
+#modal img{
+ max-width:80%;
+ max-height:60%;
+ border-radius:15px;
+ box-shadow:0 0 25px #ff66b3;
+ margin-bottom:15px;
+ animation:imgZoom 0.8s ease;
+}
+@keyframes imgZoom{
+ from{transform:scale(0);}
+ to{transform:scale(1);}
+}
+#modal p{
+ font-size:22px;
+ color:#ffb3d9;
+ text-align:center;
+}
+#modal span{
+ cursor:pointer;
+ padding:6px 12px;
+ background:#ff3366;
+ border-radius:12px;
+ margin-top:10px;
+ box-shadow:0 0 10px #ff66b3;
+}
+
+/* Surprise Popup */
+#finalPopup{
+ display:none;
+ position:fixed;
+ top:50%;
+ left:50%;
+ transform:translate(-50%,-50%);
+ background:#ff1a75;
+ padding:25px 40px;
+ font-size:28px;
+ color:white;
+ border-radius:20px;
+ z-index:2000;
+ text-align:center;
+ box-shadow:0 0 25px #ff66b3,0 0 50px #ff1a75;
+ animation:popupGlow 1s infinite alternate;
+}
+@keyframes popupGlow{
+ from{box-shadow:0 0 25px #ff66b3,0 0 50px #ff1a75;}
+ to{box-shadow:0 0 35px #ff99cc,0 0 70px #ff4d6d;}
+}
+</style>
+</head>
+<body onclick="playMusic()">
+
+<h1>🎂 Happy Birthday My special one !With you, every moment feels special, every smile feels real☺️and every dream feels possible 🌙✨</h1>
+<div id="typing"></div>
+<p>Tap on the hearts 💖 to see your surprise pictures and messages!</p>
+
+<!-- Modal -->
+<div id="modal">
+ <img id="modalImg" src="">
+ <p id="modalMsg"></p>
+ <span onclick="closeModal()">Close ❤️</span>
+</div>
+
+<!-- Final Popup -->
+<div id="finalPopup"> 
+To the boy who makes my world brighter just by being in it 💫
+</div>
+
+<!-- Music -->
+<audio id="song" loop>
+ <source src="https://pagalworld.com.se/files/download/id/7226">
+</audio>
+
+<script>
+// Play Music
+function playMusic(){ document.getElementById("song").play(); }
+
+// Typing animation
+let text="My Jana ❤️";
+let i=0;
+setInterval(()=>{
+ if(i<text.length){
+   document.getElementById("typing").innerHTML+=text.charAt(i);
+   i++;
+ }
+},200);
+
+// Floating Hearts
+setInterval(()=>{
+ let h=document.createElement("div");
+ h.className="heart";
+ h.innerHTML="💝";
+ h.style.left=Math.random()*100+"vw";
+ document.body.appendChild(h);
+
+ // Click to show image
+ h.addEventListener("click",()=>{ showImage(); });
+
+ setTimeout(()=>h.remove(),6000);
+},350);
+
+// Rose rain
+setInterval(()=>{
+ let r=document.createElement("div");
+ r.className="rose";
+ r.innerHTML="🌹";
+ r.style.left=Math.random()*100+"vw";
+ document.body.appendChild(r);
+ setTimeout(()=>r.remove(),6000);
+},500);
+
+// Fireworks on click
+document.addEventListener("click", e=>{
+ let f=document.createElement("div");
+ f.className="fire";
+ f.innerHTML="🎆";
+ f.style.left=e.clientX+"px";
+ f.style.top=e.clientY+"px";
+ document.body.appendChild(f);
+ setTimeout(()=>f.remove(),1500);
+});// Images + messages
+let images=[
+ {src:"https://i.ibb.co/CKBv87Dj/IMG-20260107-145350-117.jpg", msg:"Happy Birthday my love! 😘Ur not just my love story,ur my whole life 🧬💙"},
+ {src:"https://i.ibb.co/PB88Dmh/IMG-20260107-145459-656.jpg", msg:"You are my happiness 💕At every birth,at every turn....I only want your company!♾️💟"},
+ {src:"https://i.ibb.co/6cGvLDHc/IMG-20260107-145848-087.jpg", msg:"Forever yours ❤️ I don't choose u today, I choose u every day🧬🫶"},
+ {src:"https://i.ibb.co/6cDSL7vT/IMG-20260107-145921-321.jpg", msg:"You make my heart smile 😍ur not my habbit,ur my nacessity!💝😌"},
+ {src:"https://i.ibb.co/Xry2w14m/IMG-20260107-150006-270.jpg", msg:"My sunshine 🌞; meeting u made me realise.....now life 🧬 is completed!✨"},
+ {src:"https://i.ibb.co/99dqtpDv/IMG-20260107-150041-823.jpg", msg:"Every moment with you is special 💖"},
+ {src:"https://i.ibb.co/Z6shgDHS/Snapchat-1003119136-2.jpg", msg:"I love you more than anything ❤️you are what"forever"really means ♾️💙"}
+];
+
+let imgIndex=0;
+function showImage(){
+ let modal=document.getElementById("modal");
+ document.getElementById("modalImg").src = images[imgIndex].src;
+ document.getElementById("modalMsg").innerHTML = images[imgIndex].msg;
+ modal.style.display="flex";
+ imgIndex++;
+ if(imgIndex>=images.length){
+   imgIndex=0;
+   setTimeout(()=>{ document.getElementById("finalPopup").style.display="block"; },500);
+ }
+}
+
+function closeModal(){ document.getElementById("modal").style.display="none"; }
+</script>
+
+</body>
+</html>
