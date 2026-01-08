@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>✨Happy Birthday my jana 🎂💝</title>
+
+<style>
+body{
+ margin:0;
+ background:#050508;
+ color:white;
+ font-family:'Segoe Script', cursive;
+ text-align:center;
+ overflow:hidden;
+}
+h1{
+ margin-top:30px;
+ font-size:34px;
+ color:#ff4d88;
+ text-shadow:0 0 15px #ff1a75,0 0 30px #ff66b3;
+}
+#names{
+ font-size:30px;
+ margin:15px 0;
+ animation:glow 2s infinite alternate;
+}
+@keyframes glow{
+ from{text-shadow:0 0 10px #ff66b3;}
+ to{text-shadow:0 0 30px #ff1a75;}
+}
+button{
+ padding:14px 26px;
+ border:none;
+ border-radius:30px;
+ background:#ff1a75;
+ color:white;
+ font-size:20px;
+ box-shadow:0 0 20px #ff66b3;
+}
+.heart{
+ position:fixed;
+ bottom:-20px;
+ font-size:24px;
+ animation:float 5s linear infinite;
+ cursor:pointer;
+}
+@keyframes float{
+ to{transform:translateY(-100vh);opacity:0;}
+}
+.rose{
+ position:fixed;
+ top:-20px;
+ font-size:22px;
+ animation:fall 6s linear infinite;
+}
+@keyframes fall{
+ to{transform:translateY(100vh);}
+}
+#modal{
+ display:none;
+ position:fixed;
+ top:0;left:0;
+ width:100%;height:100%;
+ background:rgba(0,0,0,0.95);
+ justify-content:center;
+ align-items:center;
+ flex-direction:column;
+ z-index:999;
+}
+#modal img{
+ max-width:85%;
+ max-height:60%;
+ border-radius:18px;
+ box-shadow:0 0 30px #ff66b3;
+}
+#modal p{
+ font-size:20px;
+ margin:15px;
+ color:#ffd6eb;
+}
+#final{
+ display:none;
+ position:fixed;
+ top:50%;left:50%;
+ transform:translate(-50%,-50%);
+ background:#ff1a75;
+ padding:28px;
+ border-radius:22px;
+ font-size:26px;
+ box-shadow:0 0 40px #ff66b3;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎂 Happy Birthday My Love 🎂</h1>
+<div id="names">Arun ❤️ sheetal </div>
+
+<button onclick="startSurprise()">Tap to Start Surprise 💖</button>
+
+<div id="modal">
+ <img id="mimg">
+ <p id="mmsg"></p>
+ <button onclick="closeModal()">Close ❤️</button>
+</div>
+
+<div id="final">🎁 Happy Birthday , My Jana ❤️At every birth, at every turn… I only want your company !💙🧬</div>
+
+<audio id="song" loop preload="auto">
+ <source src="https://pagalworld.com.se/files/download/id/7226">
+</audio>
+
+<script>
+// START
+function startSurprise(){
+ document.querySelector("button").style.display="none";
+ document.getElementById("song").play();
+}
+
+// FAST PRELOAD IMAGES
+let data=[
+ ["https://i.ibb.co/CKBv87Dj/IMG-20260107-145350-117.jpg","Happy Birthday my love. You mean everything to me ❤️"],
+ ["https://i.ibb.co/PB88Dmh/IMG-20260107-145459-656.jpg","You are my peace and my happiness 💞You are not just my love story, you are my whole life 🧬"],
+ ["https://i.ibb.co/6cGvLDHc/IMG-20260107-145848-087.jpg","Life is beautiful because of you ✨I don’t just choose you today, I choose you every day♾️"],
+ ["https://i.ibb.co/6cDSL7vT/IMG-20260107-145921-321.jpg","I fall for you every single day 😘You are not my habit, you are my necessity 😌"],
+ ["https://i.ibb.co/Xry2w14m/IMG-20260107-150006-270.jpg","My sunshine on every dark day ☀️Meeting you made me realize… now life is complete!✨"],
+ ["https://i.ibb.co/99dqtpDv/IMG-20260107-150041-823.jpg","Forever yours, no matter what ;You are what “forever” really means ❤️!"],
+ ["https://i.ibb.co/Z6shgDHS/Snapchat-1003119136-2.jpg","Happy Birthday Arun, my forever ❤️Love you more than words, always & forever 💫"]
+];
+
+// preload
+data.forEach(d=>{ let i=new Image(); i.src=d[0]; });
+
+let i=0;
+
+// HEARTS
+setInterval(()=>{
+ let h=document.createElement("div");
+ h.className="heart";
+ h.innerHTML="💝";
+ h.style.left=Math.random()*100+"vw";
+ document.body.appendChild(h);
+ h.onclick=()=>showImage();
+ setTimeout(()=>h.remove(),5000);
+},300);
+
+// ROSES
+setInterval(()=>{
+ let r=document.createElement("div");
+ r.className="rose";
+ r.innerHTML="🌹";
+ r.style.left=Math.random()*100+"vw";
+ document.body.appendChild(r);
+ setTimeout(()=>r.remove(),6000);
+},500);
+
+function showImage(){
+ document.getElementById("modal").style.display="flex";
+ document.getElementById("mimg").src=data[i][0];
+ document.getElementById("mmsg").innerHTML=data[i][1];
+ i++;
+ if(i>=data.length){
+   i=0;
+   setTimeout(()=>document.getElementById("final").style.display="block",600);
+ }
+}
+function closeModal(){
+ document.getElementById("modal").style.display="none";
+}
+</script>
+
+</body>
+</html>
