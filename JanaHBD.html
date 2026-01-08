@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Arun ❤️</title>
+
+<style>
+body{
+ margin:0;
+ background:#07070a;
+ color:white;
+ font-family:'Segoe Script', cursive;
+ text-align:center;
+ overflow:hidden;
+}
+
+/* Heading */
+h1{
+ margin-top:20px;
+ font-size:36px;
+ color:#ff4d88;
+ text-shadow:0 0 10px #ff1a75,0 0 30px #ff66b3;
+}
+
+/* Arun Sheetal Animation */
+#names{
+ font-size:32px;
+ margin:15px 0;
+ animation:glow 2s infinite alternate;
+}
+@keyframes glow{
+ from{text-shadow:0 0 10px #ff66b3;}
+ to{text-shadow:0 0 30px #ff1a75;}
+}
+
+/* Floating Hearts */
+.heart{
+ position:fixed;
+ bottom:-20px;
+ font-size:24px;
+ animation:float 6s linear infinite;
+ cursor:pointer;
+ color:#ff3366;
+}
+@keyframes float{
+ from{transform:translateY(0);opacity:1;}
+ to{transform:translateY(-100vh);opacity:0;}
+}
+
+/* Roses */
+.rose{
+ position:fixed;
+ top:-20px;
+ font-size:22px;
+ animation:fall 6s linear infinite;
+}
+@keyframes fall{
+ from{transform:translateY(0);}
+ to{transform:translateY(100vh);}
+}
+
+/* Fireworks */
+.fire{
+ position:fixed;
+ font-size:28px;
+ animation:blast 1.5s forwards;
+}
+@keyframes blast{
+ from{transform:scale(0);opacity:1;}
+ to{transform:scale(3);opacity:0;}
+}
+
+/* Image Modal */
+#modal{
+ display:none;
+ position:fixed;
+ top:0;left:0;
+ width:100%;height:100%;
+ background:rgba(0,0,0,0.95);
+ justify-content:center;
+ align-items:center;
+ flex-direction:column;
+ z-index:999;
+}
+#modal img{
+ max-width:80%;
+ max-height:60%;
+ border-radius:20px;
+ box-shadow:0 0 25px #ff66b3;
+}
+#modal p{
+ font-size:20px;
+ margin:15px;
+ color:#ffd6eb;
+}
+#modal button{
+ padding:8px 16px;
+ border:none;
+ border-radius:12px;
+ background:#ff3366;
+ color:white;
+ font-size:16px;
+}
+
+/* Final Popup */
+#final{
+ display:none;
+ position:fixed;
+ top:50%;left:50%;
+ transform:translate(-50%,-50%);
+ background:#ff1a75;
+ padding:30px;
+ border-radius:20px;
+ font-size:28px;
+ box-shadow:0 0 40px #ff66b3;
+ z-index:1000;
+}
+</style>
+</head>
+
+<body onclick="playMusic()">
+
+<h1>🎂 Happy Birthday My Love 🎂</h1>
+
+<div id="names">
+ Arun <span style="color:#ff99cc;">❤️</span> Sheetal
+</div>
+
+<p>Tap the floating hearts 💝</p>
+
+<!-- Modal -->
+<div id="modal">
+ <img id="mimg">
+ <p id="mmsg"></p>
+ <button onclick="closeModal()">Close ❤️</button>
+</div>
+
+<div id="final">🎁 Happy Birthday Arun! I Love You Forever ❤️</div>
+
+<!-- Music -->
+<audio id="song" loop>
+ <source src="https://pagalworld.com.se/files/download/id/7226">
+</audio>
+
+<script>
+// Music
+function playMusic(){
+ document.getElementById("song").play();
+}
+
+// Hearts
+setInterval(()=>{
+ let h=document.createElement("div");
+ h.className="heart";
+ h.innerHTML="💝";
+ h.style.left=Math.random()*100+"vw";
+ document.body.appendChild(h);
+ h.onclick=()=>showImage();
+ setTimeout(()=>h.remove(),6000);
+},350);
+
+// Roses
+setInterval(()=>{
+ let r=document.createElement("div");
+ r.className="rose";
+ r.innerHTML="🌹";
+ r.style.left=Math.random()*100+"vw";
+ document.body.appendChild(r);
+ setTimeout(()=>r.remove(),6000);
+},500);
+
+// Fireworks
+document.addEventListener("click",e=>{
+ let f=document.createElement("div");
+ f.className="fire";
+ f.innerHTML="🎆";
+ f.style.left=e.clientX+"px";
+ f.style.top=e.clientY+"px";
+ document.body.appendChild(f);
+ setTimeout(()=>f.remove(),1500);
+});
+
+// Images & Messages
+let data=[
+ {src:"https://i.ibb.co/CKBv87Dj/IMG-20260107-145350-117.jpg",
+ msg:"Happy Birthday, my love. Your smile makes my whole world brighter. 🎂❤️"},
+ {src:"https://i.ibb.co/PB88Dmh/IMG-20260107-145459-656.jpg",
+ msg:"You are my peace, my happiness, and my forever. 💞"},
+ {src:"https://i.ibb.co/6cGvLDHc/IMG-20260107-145848-087.jpg",
+ msg:"Every moment with you feels magical and special. ✨"},
+ {src:"https://i.ibb.co/6cDSL7vT/IMG-20260107-145921-321.jpg",
+ msg:"I fall in love with you more and more every day. 😘"},
+ {src:"https://i.ibb.co/Xry2w14m/IMG-20260107-150006-270.jpg",
+ msg:"You are my sunshine in every dark moment. ☀️❤️"},
+ {src:"https://i.ibb.co/99dqtpDv/IMG-20260107-150041-823.jpg",
+ msg:"My heart will always choose you, no matter what. 💍"},
+ {src:"https://i.ibb.co/Z6shgDHS/Snapchat-1003119136-2.jpg",
+ msg:"Happy Birthday Arun, my Jana. You are my everything. 💝"}
+];
+
+let i=0;
+function showImage(){
+ document.getElementById("modal").style.display="flex";
+ document.getElementById("mimg").src=data[i].src;
+ document.getElementById("mmsg").innerHTML=data[i].msg;
+ i++;
+ if(i>=data.length){
+   i=0;
+   setTimeout(()=>document.getElementById("final").style.display="block",600);
+ }
+}
+
+function closeModal(){
+ document.getElementById("modal").style.display="none";
+}
+</script>
+
+</body>
+</html>
