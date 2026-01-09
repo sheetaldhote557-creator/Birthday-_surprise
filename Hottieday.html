@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday My Jana ❤️</title>
+
+<style>
+body{
+ margin:0;
+ background:linear-gradient(to bottom,#ff4d6d,#ffb3c6);
+ font-family:cursive;
+ text-align:center;
+ overflow-x:hidden;
+ color:white;
+}
+
+h1{
+ margin-top:20px;
+ font-size:38px;
+ animation:glow 2s infinite;
+}
+
+@keyframes glow{
+ 0%{text-shadow:0 0 10px white;}
+ 50%{text-shadow:0 0 25px yellow;}
+ 100%{text-shadow:0 0 10px white;}
+}
+
+p{
+ font-size:20px;
+ margin:10px 20px;
+}
+
+.gallery{
+ display:flex;
+ flex-wrap:wrap;
+ justify-content:center;
+}
+
+.gallery img{
+ width:250px;
+ margin:10px;
+ border-radius:20px;
+ box-shadow:0 0 20px #fff;
+ animation:zoom 3s infinite alternate;
+}
+
+@keyframes zoom{
+ from{transform:scale(1);}
+ to{transform:scale(1.07);}
+}
+
+/* hearts */
+.heart{
+ position:fixed;
+ bottom:-20px;
+ font-size:24px;
+ animation:float 6s linear infinite;
+}
+
+@keyframes float{
+ from{transform:translateY(0);opacity:1;}
+ to{transform:translateY(-100vh);opacity:0;}
+}
+
+/* sparkle */
+.sparkle{
+ position:fixed;
+ color:yellow;
+ animation:spark 2s linear forwards;
+}
+
+@keyframes spark{
+ from{opacity:1;transform:scale(1);}
+ to{opacity:0;transform:scale(2);}
+}
+
+button{
+ padding:12px 25px;
+ font-size:18px;
+ border:none;
+ border-radius:30px;
+ background:red;
+ color:white;
+ margin:20px;
+}
+</style>
+</head>
+
+<body onclick="playMusic()">
+
+<h1>🎂 Happy Birthday My Jana ❤️</h1>
+
+<p>
+You are my smile, my strength, my forever 💕<br>
+Every heartbeat says your name 😘<br>
+I love you endlessly ❤️<br><br>
+— <b>Sheetal</b>
+</p>
+
+<div class="gallery">
+<img src="https://i.ibb.co/CKBv87Dj/IMG-20260107-145350-117.jpg">
+<img src="https://i.ibb.co/PB88Dmh/IMG-20260107-145459-656.jpg">
+<img src="https://i.ibb.co/6cGvLDHc/IMG-20260107-145848-087.jpg">
+<img src="https://i.ibb.co/6cDSL7vT/IMG-20260107-145921-321.jpg">
+<img src="https://i.ibb.co/Xry2w14m/IMG-20260107-150006-270.jpg">
+<img src="https://i.ibb.co/99dqtpDv/IMG-20260107-150041-823.jpg">
+<img src="https://i.ibb.co/Z6shgDHS/Snapchat-1003119136-2.jpg">
+</div>
+
+<button>▶ Tap Anywhere to Play Music 🎶</button>
+
+<audio id="song" loop>
+ <source src="https://pagalworld.com.se/files/download/id/6879">
+</audio>
+
+<script>
+function playMusic(){
+ document.getElementById("song").play();
+}
+
+// floating hearts
+setInterval(()=>{
+ let h=document.createElement("div");
+ h.className="heart";
+ h.innerHTML="❤️";
+ h.style.left=Math.random()*100+"vw";
+ document.body.appendChild(h);
+ setTimeout(()=>h.remove(),6000);
+},300);
+
+// sparkles
+document.addEventListener("click",e=>{
+ let s=document.createElement("div");
+ s.className="sparkle";
+ s.innerHTML="✨";
+ s.style.left=e.clientX+"px";
+ s.style.top=e.clientY+"px";
+ document.body.appendChild(s);
+ setTimeout(()=>s.remove(),2000);
+});
+</script>
+
+</body>
+</html>
