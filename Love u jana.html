@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday My Jana ❤️</title>
+
+<style>
+body{
+ margin:0;
+ background:linear-gradient(to bottom,#ff2f68,#ff9a9e);
+ font-family:cursive;
+ text-align:center;
+ overflow-x:hidden;
+ color:white;
+}
+
+h1{margin-top:20px;font-size:36px;}
+#typing{font-size:28px;color:yellow;margin-bottom:10px;}
+
+.gallery{
+ display:flex;
+ flex-wrap:wrap;
+ justify-content:center;
+}
+.gallery img{
+ width:240px;
+ margin:10px;
+ border-radius:20px;
+ box-shadow:0 0 20px white;
+ animation:zoom 3s infinite alternate;
+}
+@keyframes zoom{
+ from{transform:scale(1);}
+ to{transform:scale(1.07);}
+}
+
+/* floating hearts */
+.heart{
+ position:fixed;
+ bottom:-10px;
+ font-size:24px;
+ animation:float 6s linear infinite;
+}
+@keyframes float{
+ from{transform:translateY(0);opacity:1;}
+ to{transform:translateY(-100vh);opacity:0;}
+}
+
+/* heart on image tap */
+.tapHeart{
+ position:absolute;
+ font-size:30px;
+ animation:pop 1.5s forwards;
+}
+@keyframes pop{
+ from{transform:scale(0);opacity:1;}
+ to{transform:scale(2);opacity:0;}
+}
+
+button{
+ padding:12px 25px;
+ border:none;
+ border-radius:30px;
+ background:red;
+ color:white;
+ font-size:18px;
+ margin:20px;
+}
+</style>
+</head>
+
+<body onclick="playMusic()">
+
+<h1>🎂 Happy Birthday My Love ❤️</h1>
+<div id="typing"></div>
+
+<p>
+You are my heart, my soul, my forever 💕<br>
+— <b>Sheetal</b>
+</p>
+
+<div class="gallery">
+<img src="https://i.ibb.co/CKBv87Dj/IMG-20260107-145350-117.jpg" onclick="heartPop(event)">
+</div>
+
+<button>▶ Tap Anywhere – Music 🎶</button>
+
+<!-- SONG: Dil Tu Jaan Tu -->
+<audio id="song" loop>
+ <source src="https://cdn.pixabay.com/download/audio/2022/10/09/audio_5cdbf9f3b7.mp3 ">
+</audio>
+
+
+<script>
+// music
+function playMusic(){
+ document.getElementById("song").play();
+}
+
+// typing
+let text="My Jana ❤️";
+let i=0;
+setInterval(()=>{
+ if(i<text.length){
+   document.getElementById("typing").innerHTML+=text.charAt(i);
+   i++;
+ }
+},200);
+
+// floating hearts
+setInterval(()=>{
+ let h=document.createElement("div");
+ h.className="heart";
+ h.innerHTML="💖";
+ h.style.left=Math.random()*100+"vw";
+ document.body.appendChild(h);
+ setTimeout(()=>h.remove(),6000);
+},350);
+
+// heart on image tap
+function heartPop(e){
+ let heart=document.createElement("div");
+ heart.className="tapHeart";
+ heart.innerHTML="💝";
+ heart.style.left=e.pageX+"px";
+ heart.style.top=e.pageY+"px";
+ document.body.appendChild(heart);
+ setTimeout(()=>heart.remove(),1500);
+}
+</script>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/P0PMdHtXVHc?si=7ykt9RGr9iMd-yaP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</body>
+</html>
