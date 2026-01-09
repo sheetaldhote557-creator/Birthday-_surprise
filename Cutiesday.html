@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Happy Birthday My Jana ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body{
+margin:0;
+background:black;
+overflow:hidden;
+font-family:cursive;
+text-align:center;
+color:white;
+}
+
+h1{
+margin-top:60px;
+font-size:42px;
+animation: zoom 2s infinite;
+}
+
+@keyframes zoom{
+0%{transform:scale(1);}
+50%{transform:scale(1.1);}
+100%{transform:scale(1);}
+}
+
+.slider{
+width:90%;
+margin:auto;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 0 20px pink;
+}
+
+.slider img{
+width:100%;
+animation: fade 12s infinite;
+}
+
+@keyframes fade{
+0%{opacity:1;}
+25%{opacity:0;}
+50%{opacity:1;}
+}
+
+.heart{
+position:fixed;
+font-size:22px;
+color:red;
+animation: fly 6s linear infinite;
+}
+
+@keyframes fly{
+0%{bottom:0;opacity:1;}
+100%{bottom:100%;opacity:0;}
+}
+
+.firework{
+position:fixed;
+font-size:20px;
+animation: blast 1.5s linear infinite;
+}
+
+@keyframes blast{
+0%{transform:scale(0);opacity:1;}
+100%{transform:scale(2);opacity:0;}
+}
+
+button{
+padding:12px 25px;
+font-size:18px;
+border:none;
+border-radius:30px;
+background:red;
+color:white;
+margin-top:20px;
+}
+</style>
+</head>
+
+<body onclick=" play music ()">
+
+<h1>🎂 Happy Birthday My Jana ❤️</h1>
+
+<div class="slider">
+<img src="img src="https://i.ibb.co/CKBv87Dj/IMG-20260107-145350-117.jpg">
+<img src="https://i.ibb.co/PB88Dmh/IMG-20260107-145459-656.jpg">
+<img src="https://i.ibb.co/6cGvLDHc/IMG-20260107-145848-087.jpg">
+<img src="https://i.ibb.co/6cDSL7vT/IMG-20260107-145921-321.jpg">
+<img src="https://i.ibb.co/Xry2w14m/IMG-20260107-150006-270.jpg">
+<img src="https://i.ibb.co/99dqtpDv/IMG-20260107-150041-823.jpg">
+<img src="https://i.ibb.co/Z6shgDHS/Snapchat-1003119136-2.jpg">
+</div>
+
+<p>
+You are my smile, my strength, my forever 💕<br>
+Every heartbeat whispers your name ❤️<br>
+Happy Birthday my love 🌹  
+<br><b>— Sheetal</b>
+</p><audio id="music" loop>
+<source src="https://youtube.com/shorts/LpUp_-SUOSg?si=6vJ2mQ3s1s0HCtze">
+</audio>
+
+<script>
+function playMusic(){
+document.getElementById("music").play();
+}
+
+// Hearts
+setInterval(()=>{
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="❤️";
+h.style.left=Math.random()*100+"vw";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),6000);
+},300);
+
+// Fireworks
+setInterval(()=>{
+let f=document.createElement("div");
+f.className="firework";
+f.innerHTML="✨";
+f.style.left=Math.random()*100+"vw";
+f.style.top=Math.random()*100+"vh";
+document.body.appendChild(f);
+setTimeout(()=>f.remove(),1500);
+},500);
+</script>
