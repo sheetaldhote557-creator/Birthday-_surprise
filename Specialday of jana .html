@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday My Jana ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(to bottom right, #ff5f9e, #ffc371);
+    overflow: hidden;
+    font-family: 'Segoe Script', cursive;
+    text-align: center;
+    color: white;
+}
+
+h1 {
+    margin-top: 80px;
+    font-size: 40px;
+    animation: glow 2s infinite;
+}
+
+p {
+    font-size: 22px;
+    width: 80%;
+    margin: auto;
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 10px #fff; }
+    50% { text-shadow: 0 0 25px #ffeb3b; }
+    100% { text-shadow: 0 0 10px #fff; }
+}
+
+/* Floating hearts */
+.heart {
+    position: fixed;
+    bottom: -10px;
+    font-size: 24px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
+
+button {
+    margin-top: 30px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    background: #ff1744;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body onclick="playMusic()">
+
+<h1>🎂 Happy Birthday My Jana ❤️</h1>
+
+<p>
+My love, my strength, my happiness 💕<br>
+Every moment with you is special 🌹<br>
+May your birthday be as beautiful as your smile 😘<br><br>
+Forever yours ❤️  
+<br><b>— Sheetal</b>
+</p>
+
+<button onclick="playMusic()">▶ Play Birthday Music</button>
+
+<audio id="song" loop>
+    <source src="https://pagalworld.com.se/files/download/id/6879" type="audio/mpeg">
+</audio>
+
+<script>
+function playMusic() {
+    document.getElementById("song").play();
+}
+
+// Hearts animation
+setInterval(() => {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (20 + Math.random() * 20) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}, 300);
+</script>
+
+</body>
+</html>
